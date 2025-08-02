@@ -1,0 +1,227 @@
+@import "tailwindcss";
+/* Removed @import "tw-animate-css/dist/tw-animate-css.css"; */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Light theme base colors */
+  --background: oklch(0.985 0 0); /* Near white */
+  --foreground: oklch(0.048 0.024 264.376); /* Near black */
+  --card: oklch(0.985 0 0);
+  --card-foreground: oklch(0.048 0.024 264.376);
+  --popover: oklch(0.985 0 0);
+  --popover-foreground: oklch(0.048 0.024 264.376);
+  --primary: oklch(0.048 0.024 264.376); /* Dark primary for text/icons */
+  --primary-foreground: oklch(0.985 0 0); /* Light text on primary */
+  --secondary: oklch(0.95 0.01 264.376); /* Light gray secondary */
+  --secondary-foreground: oklch(0.048 0.024 264.376);
+  --muted: oklch(0.95 0.01 264.376);
+  --muted-foreground: oklch(0.3 0 0); /* Darker gray for muted text */
+  --accent: oklch(0.95 0.01 264.376);
+  --accent-foreground: oklch(0.048 0.024 264.376);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.9 0.01 264.376); /* Light border */
+  --input: oklch(0.95 0.01 264.376);
+  --ring: oklch(0.439 0 0); /* Keep ring color for focus */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+
+  /* Custom colors - adjusted for light theme */
+  --dark-bg: #ffffff; /* Not used directly, but for consistency */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background-color: white; /* Main background */
+    color: black; /* Main text color */
+    overflow-x: hidden;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism effect - adjusted for light theme */
+.glassmorphism-card-subtle {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.02); /* Very subtle black tint */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle black border */
+}
+
+/* Ripple effect for buttons - adjusted for light theme */
+.ripple-button {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.ripple-button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 10%, transparent 10.01%); /* Subtle black ripple */
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+}
+
+.ripple-button:active:after {
+  transform: scale(0, 0);
+  opacity: 0.2; /* Softer active ripple */
+  transition: 0s;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Pause marquee on hover */
+.group-hover\:pause-marquee:hover {
+  animation-play-state: paused;
+}
+.group-hover\:pause-marquee:hover * {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/* Floating animation - reduced movement */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px); /* Less vertical movement */
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Removed redundant CSS for glows, particles, etc. as they are handled by component styles or removed */
+.neon-text,
+.glow-button,
+.border-glow,
+.particle,
+.hover-lift {
+  /* These classes are either removed or their effects are now handled by more subtle inline styles/new classes */
+  text-shadow: none;
+  box-shadow: none;
+  animation: none;
+  transform: none;
+}
+
+/* Focus styles for accessibility */
+.focus-ring:focus {
+  outline: 2px solid #007bff; /* Blue focus ring for light theme */
+  outline-offset: 2px;
+}
+
+/* Mesh gradient backgrounds - extremely subtle on light theme */
+.mesh-gradient-1 {
+  background: radial-gradient(ellipse at top, rgba(0, 123, 255, 0.05) 0%, transparent 50%), /* Subtle blue */
+    radial-gradient(ellipse at bottom, rgba(108, 117, 125, 0.05) 0%, transparent 50%); /* Subtle gray */
+}
+
+.mesh-gradient-2 {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(0, 123, 255, 0.05) 0deg,
+    rgba(108, 117, 125, 0.05) 120deg,
+    rgba(40, 167, 69, 0.05) 240deg,
+    rgba(0, 123, 255, 0.05) 360deg
+  );
+}
+
+/* Animation delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+.delay-1000 {
+  animation-delay: 1s;
+}
