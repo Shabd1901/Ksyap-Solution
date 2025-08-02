@@ -142,7 +142,7 @@ export default function Contact() {
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="glassmorphism-card-subtle rounded-2xl border border-gray-200 bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-sm p-8" /* Adjusted for light theme */
           >

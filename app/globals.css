@@ -8,7 +8,7 @@
 @tailwind utilities;
 /* Removed @import "tw-animate-css/dist/tw-animate-css.css"; */
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 :root {
   /* Light theme base colors */
@@ -74,9 +74,7 @@
 }
 
 @layer base {
-  * {
-    @apply border outline-ring/50;
-  }
+  /* Removed universal border and outline */
   body {
     background-color: white; /* Main background */
     color: black; /* Main text color */
@@ -126,10 +124,6 @@ html {
   opacity: 0.2; /* Softer active ripple */
   transition: 0s;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* Marquee animation */
 @keyframes marquee {

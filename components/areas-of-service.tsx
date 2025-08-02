@@ -152,7 +152,7 @@ export default function AreasOfService() {
                 className="group relative overflow-hidden cursor-pointer rounded-2xl border border-gray-200 bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-md p-6 transition-all duration-500 shadow-sm hover:shadow-xl min-h-[100px]"
               >
                 <div
-                  className={`w-14 h-14 rounded-full bg-gradient-to-r ${area.gradient} bg-opacity-10 border border-gray-200 mb-4 w-fit mx-auto`}
+                  className={`p-4 rounded-full bg-gradient-to-r ${area.gradient} bg-opacity-10 border border-gray-200 mb-4 w-fit mx-auto`}
                 >
                   <IconComponent className="h-7 w-7 text-gray-800" />
                 </div>
