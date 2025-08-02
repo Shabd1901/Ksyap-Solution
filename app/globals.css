@@ -1,4 +1,11 @@
+/* DO NOT use this anymore:
 @import "tailwindcss";
+*/
+
+/* ✅ Use Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* Removed @import "tw-animate-css/dist/tw-animate-css.css"; */
 
 @custom-variant dark (&:is(.dark *));
