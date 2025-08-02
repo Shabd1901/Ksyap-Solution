@@ -10,16 +10,16 @@ export default function Team() {
       role: "Team Lead, UI/UX Developer",
       initials: "SP",
       bio: "Visionary leader with 5+ years in Website Development and ERP Solution Architect.",
-      linkedin: "#",
-      email: "prajapatishabdansh@gmail.com",
+      linkedin: "https://www.linkedin.com/in/shabdansh-prajapati-2225651b3/", // Updated LinkedIn URL
+      email: "prajapatishabdansh@gmail.com", // Updated email
     },
     {
       name: "Shivam Sharma",
       role: "Web Developer",
       initials: "SS",
       bio: "Technology expert specializing in Web and App development technologies.",
-      linkedin: "#",
-      email: "shivamsharma@gmail.com",
+      linkedin: "http://www.linkedin.com/in/shivam-sharma-2b39ba344", // Updated LinkedIn URL
+      email: "sharmashivam7715@gmail.com", // Updated email
     },
   ]
 
