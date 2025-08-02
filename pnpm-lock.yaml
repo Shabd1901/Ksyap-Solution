@@ -137,6 +137,9 @@ importers:
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      postcss:
+        specifier: ^8.4.39
+        version: 8.5.0
       react:
         specifier: ^19
         version: 19.0.0
@@ -158,6 +161,9 @@ importers:
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.17
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
@@ -183,12 +189,6 @@ importers:
       eslint-config-next:
         specifier: 15.0.0
         version: 15.0.0(eslint@8.57.0)(typescript@5.0.2)
-      postcss:
-        specifier: ^8.5
-        version: 8.5.0
-      tailwindcss:
-        specifier: ^3.4.17
-        version: 3.4.17
       typescript:
         specifier: ^5
         version: 5.0.2
