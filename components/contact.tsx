@@ -65,7 +65,7 @@ export default function Contact() {
       color: "text-green-600",
       borderColor: "border-green-200",
       bgColor: "bg-green-100",
-      onClick: () => copyToClipboard("+919769637525"),
+      onClick: () => copyToClipboard("+91 93248 95038"),
     },
     {
       icon: Mail,
