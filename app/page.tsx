@@ -7,7 +7,6 @@ import Hero from "@/components/hero"
 import Vision from "@/components/vision"
 import ServicesMarquee from "@/components/services-marquee" // This component now handles "Our Services"
 import AreasOfService from "@/components/areas-of-service"
-import Team from "@/components/team"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import ParticleBackground from "@/components/particle-background"
@@ -35,7 +34,6 @@ export default function Home() {
       <Vision />
       <ServicesMarquee /> {/* This is your "Our Services" marquee */}
       <AreasOfService />
-      <Team />
       <Contact />
       <Footer />
     </div>

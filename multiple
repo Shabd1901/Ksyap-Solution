@@ -1,0 +1,81 @@
+// app/page.tsx
+import React from "react";
+import Hero from "@/components/hero";
+import About from "@/components/about";
+import Vision from "@/components/vision";
+import ServicesMarquee from "@/components/servicesMarquee";
+import AreasOfService from "@/components/areasOfService";
+import Contact from "@/components/contact";
+
+const Page = () => {
+  return (
+    <div>
+      <Hero />
+      <About />
+      <Vision />
+      <ServicesMarquee />
+      <AreasOfService />
+      <Contact />
+    </div>
+  );
+};
+
+export default Page;
+
+// components/navbar.tsx
+import React from "react";
+import Link from "next/link";
+
+const Navbar = () => {
+  const navItems = [
+    { name: "Home", id: "hero" },
+    { name: "About", id: "about" },
+    { name: "Vision", id: "vision" },
+    { name: "Services", id: "services-marquee" },
+    { name: "Areas", id: "areas-of-service" },
+    { name: "Contact", id: "contact" },
+  ];
+
+  return (
+    <nav>
+      <ul>
+        {navItems.map((item) => (
+          <li key={item.id}>
+            <Link href={`#${item.id}`}>{item.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+// components/footer.tsx
+import React from "react";
+import Link from "next/link";
+
+const Footer = () => {
+  const quickLinks = [
+    { name: "Home", href: "#hero" },
+    { name: "About", href: "#about" },
+    { name: "Vision", href: "#vision" },
+    { name: "Services", href: "#services-marquee" },
+    { name: "Areas", href: "#areas-of-service" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <footer>
+      <ul>
+        {quickLinks.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href}>{link.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </footer>
+  );
+};
+
+export default Footer;

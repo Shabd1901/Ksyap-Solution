@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook } from "lucide-react"
+import { Linkedin, Twitter, Facebook } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,7 +17,6 @@ export default function Footer() {
     { name: "Vision", href: "#vision" },
     { name: "Services", href: "#services-marquee" }, // Updated ID
     { name: "Areas", href: "#areas-of-service" }, // Added for clarity
-    { name: "Team", href: "#team" },
     { name: "Contact", href: "#contact" },
   ]
 
@@ -39,7 +38,7 @@ export default function Footer() {
         {/* Adjusted for light theme */}
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -121,41 +120,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-4"
-          >
-            <h4 className="text-xl font-semibold bg-gradient-to-r from-cyan-600 to-purple-700 bg-clip-text text-transparent">
-              Contact Info
-            </h4>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-purple-600 mt-1 flex-shrink-0" />
-                <div className="text-gray-700">
-                  <p>A203/Aims Building, Opposite K.D.Empire</p>
-                  <p>Indralok Phase 6, Thane 401105</p>
-                  <p>Mumbai, Maharashtra, India</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <div className="text-gray-700">
-                  <p>+91 97696 37525</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-cyan-600 flex-shrink-0" />
-                <div className="text-gray-700">
-                  <p>ksyapsolution@gmail.com</p>
-                  <p>info@ksyapsolution.com</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
 

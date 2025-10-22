@@ -1,0 +1,38 @@
+/>
+
+- In app/page.tsx, import the About section and render it above Vision:
+  import About from "@/components/about"
+  ...
+  <Hero />
+  <About />
+  <Vision />
+
+- In components/navbar.tsx, add the About link to navItems right after Home:
+  const navItems = [
+    { name: "Home", id: "hero" },
+    { name: "About", id: "about" },
+    { name: "Vision", id: "vision" },
+    { name: "Services", id: "services-marquee" },
+    { name: "Areas", id: "areas-of-service" },
+    { name: "Contact", id: "contact" },
+  ]
+
+- In components/footer.tsx, add About to the quickLinks array (place it after Home):
+  const quickLinks = [
+    { name: "Home", href: "#hero" },
+    { name: "About", href: "#about" },
+    { name: "Vision", href: "#vision" },
+    { name: "Services", href: "#services-marquee" },
+    { name: "Areas", href: "#areas-of-service" },
+    { name: "Contact", href: "#contact" },
+  ]
+
+</CodeProject>
+
+All requested links now work:
+- Email opens the user’s mail client (mailto:).
+- Phone opens the dialer (tel:).
+- WhatsApp opens a chat with +91 97696 37525 using wa.me.
+- Social icons point to platform home pages so they open; you can swap in your real profile URLs at any time.
+
+Want me to plug in your official social profile URLs now?

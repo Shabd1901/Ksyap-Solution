@@ -4,12 +4,13 @@ import type React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, Send } from "lucide-react"
+import { Phone, Mail, MapPin, Send, Check } from "lucide-react"
 import confetti from "canvas-confetti"
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [copiedPhone, setCopiedPhone] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -20,14 +21,15 @@ export default function Contact() {
     const formData = new FormData(form)
 
     try {
-      const response = await fetch("https://formsubmit.co/ksyapsolution@gmail.com", {
+      // Submit to Netlify Forms
+      const response = await fetch("/", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
       })
 
       if (response.ok) {
         setSubmitStatus("success")
-        // Trigger confetti
         confetti({
           particleCount: 100,
           spread: 70,
@@ -45,14 +47,25 @@ export default function Contact() {
     }
   }
 
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopiedPhone(true)
+      setTimeout(() => setCopiedPhone(false), 1500)
+    } catch {
+      alert("Unable to copy. Please copy manually.")
+    }
+  }
+
   const contactInfo = [
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 97696 37525"],
+      details: ["+91 93248 95038"],
       color: "text-green-600",
       borderColor: "border-green-200",
       bgColor: "bg-green-100",
+      onClick: () => copyToClipboard("+919769637525"),
     },
     {
       icon: Mail,
@@ -61,18 +74,25 @@ export default function Contact() {
       color: "text-cyan-600",
       borderColor: "border-cyan-200",
       bgColor: "bg-cyan-100",
+      isMultipleEmails: true,
     },
     {
       icon: MapPin,
       title: "Address",
-      details: [
-        "A203/Aims Building, Opposite K.D.Empire,",
-        "Indralok Phase 6, Thane 401105",
-        "Mumbai, Maharashtra, India",
+      addresses: [
+        {
+          location: "India",
+          details: ["Ksyap India - A203/Aims Building", "Eden Park Road, Thane 401105", "Mumbai"],
+        },
+        {
+          location: "UK",
+          details: ["Ksyap UK - 142 Midland Road", "Luton, UK"],
+        },
       ],
       color: "text-purple-600",
       borderColor: "border-purple-200",
       bgColor: "bg-purple-100",
+      isMultipleAddress: true,
     },
   ]
 
@@ -115,24 +135,75 @@ export default function Contact() {
 
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon
+              const isPhone = info.title === "Phone"
+              const isEmail = info.title === "Email"
+              const isAddress = info.title === "Address"
+
               return (
                 <motion.div
                   key={info.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className={`glassmorphism-card-subtle p-6 rounded-2xl border ${info.borderColor} bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-sm hover:border-opacity-40 transition-all duration-300 flex items-start space-x-4`} /* Adjusted for light theme */
+                  onClick={isPhone ? info.onClick : undefined}
+                  role={isPhone ? "button" : undefined}
+                  tabIndex={isPhone ? 0 : undefined}
+                  onKeyDown={(e) => {
+                    if (isPhone && (e.key === "Enter" || e.key === " ")) info.onClick?.()
+                  }}
+                  className={`glassmorphism-card-subtle p-6 rounded-2xl border ${info.borderColor} bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-sm hover:border-opacity-40 transition-all duration-300 flex items-start space-x-4 ${isPhone ? "cursor-pointer" : ""}`}
                 >
                   <div className={`p-3 rounded-full ${info.bgColor} border ${info.borderColor}`}>
                     <IconComponent className={`h-6 w-6 ${info.color}`} />
                   </div>
-                  <div>
-                    <h4 className={`text-lg font-semibold mb-2 ${info.color}`}>{info.title}</h4>
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-gray-700">
-                        {detail}
-                      </p>
-                    ))}
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <h4 className={`text-lg font-semibold ${info.color}`}>{info.title}</h4>
+                      {isPhone && copiedPhone && <Check className="h-4 w-4 text-green-600" aria-hidden="true" />}
+                      {isPhone && copiedPhone && <span className="text-sm text-green-700">Copied</span>}
+                    </div>
+
+                    {/* Phone */}
+                    {isPhone && (
+                      <div className="mt-2 space-y-1">
+                        {info.details.map((detail, idx) => (
+                          <p key={idx} className="text-gray-700">
+                            {detail}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Email - Each on new line */}
+                    {isEmail && (
+                      <div className="mt-2 space-y-2">
+                        {info.details.map((detail, idx) => (
+                          <a
+                            key={idx}
+                            href={`mailto:${detail}`}
+                            className="block text-gray-700 underline underline-offset-4 hover:text-cyan-700"
+                          >
+                            {detail}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Addresses - Both in one box with separate icons */}
+                    {isAddress && info.addresses && (
+                      <div className="mt-2 space-y-4">
+                        {info.addresses.map((addr, addrIdx) => (
+                          <div key={addrIdx} className="flex items-start space-x-3">
+                            <MapPin className="h-5 w-5 text-purple-600 mt-1 flex-shrink-0" />
+                            <div className="text-gray-700">
+                              {addr.details.map((detail, detailIdx) => (
+                                <p key={detailIdx}>{detail}</p>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               )
@@ -142,13 +213,13 @@ export default function Contact() {
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="glassmorphism-card-subtle rounded-2xl border border-gray-200 bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-sm p-8" /* Adjusted for light theme */
+            className="glassmorphism-card-subtle rounded-2xl border border-gray-200 bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-sm p-8"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you" />
+            <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
+              {/* Netlify Forms controls */}
+              <input type="hidden" name="form-name" value="contact" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -160,7 +231,7 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm" /* Adjusted for light theme */
+                    className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm"
                     placeholder="Your full name"
                   />
                 </div>
@@ -173,7 +244,7 @@ export default function Contact() {
                     id="phone"
                     name="phone"
                     required
-                    className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm" /* Adjusted for light theme */
+                    className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm"
                     placeholder="Your phone number"
                   />
                 </div>
@@ -188,7 +259,7 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm" /* Adjusted for light theme */
+                  className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -202,7 +273,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm resize-none" /* Adjusted for light theme */
+                  className="w-full px-4 py-3 bg-gray-100/50 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500 backdrop-blur-sm resize-none"
                   placeholder="Tell us about your project requirements..."
                 />
               </div>
@@ -210,7 +281,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="ripple-button w-full bg-gradient-to-r from-cyan-600 to-purple-700 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-200 shadow-md shadow-gray-300 hover:shadow-gray-400" /* Adjusted for light theme */
+                className="ripple-button w-full bg-gradient-to-r from-cyan-600 to-purple-700 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-200 shadow-md shadow-gray-300 hover:shadow-gray-400"
               >
                 {isSubmitting ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
@@ -226,7 +297,7 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-green-600 text-center font-medium bg-green-100 border border-green-200 rounded-lg p-3" /* Adjusted for light theme */
+                  className="text-green-600 text-center font-medium bg-green-100 border border-green-200 rounded-lg p-3"
                 >
                   ✅ Message sent successfully! We'll get back to you soon.
                 </motion.div>
@@ -236,7 +307,7 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-red-600 text-center font-medium bg-red-100 border border-red-200 rounded-lg p-3" /* Adjusted for light theme */
+                  className="text-red-600 text-center font-medium bg-red-100 border border-red-200 rounded-lg p-3"
                 >
                   ❌ Failed to send message. Please try again.
                 </motion.div>

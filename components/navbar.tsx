@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X } from 'lucide-react'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -29,7 +29,6 @@ export default function Navbar() {
     { name: "Vision", id: "vision" },
     { name: "Services", id: "services-marquee" }, // Updated ID to match the new section
     { name: "Areas", id: "areas-of-service" }, // Added for clarity
-    { name: "Team", id: "team" },
     { name: "Contact", id: "contact" },
   ]
 
