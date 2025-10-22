@@ -70,7 +70,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      details: ["ksyapsolution@gmail.com", "info@ksyapsolution.com"],
+      details: ["info@ksyapsolution.com", "ksyapsolution@gmail.com"],
       color: "text-cyan-600",
       borderColor: "border-cyan-200",
       bgColor: "bg-cyan-100",
