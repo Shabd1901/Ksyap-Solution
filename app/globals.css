@@ -1,45 +1,34 @@
-/* DO NOT use this anymore:
-@import "tailwindcss";
-*/
-
-/* ✅ Use Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Removed @import "tw-animate-css/dist/tw-animate-css.css"; */
-
-/* @custom-variant dark (&:is(.dark *)); */
 
 :root {
-  /* Light theme base colors */
-  --background: oklch(0.985 0 0); /* Near white */
-  --foreground: oklch(0.048 0.024 264.376); /* Near black */
-  --card: oklch(0.985 0 0);
-  --card-foreground: oklch(0.048 0.024 264.376);
-  --popover: oklch(0.985 0 0);
-  --popover-foreground: oklch(0.048 0.024 264.376);
-  --primary: oklch(0.048 0.024 264.376); /* Dark primary for text/icons */
-  --primary-foreground: oklch(0.985 0 0); /* Light text on primary */
-  --secondary: oklch(0.95 0.01 264.376); /* Light gray secondary */
-  --secondary-foreground: oklch(0.048 0.024 264.376);
-  --muted: oklch(0.95 0.01 264.376);
-  --muted-foreground: oklch(0.3 0 0); /* Darker gray for muted text */
-  --accent: oklch(0.95 0.01 264.376);
-  --accent-foreground: oklch(0.048 0.024 264.376);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.9 0.01 264.376); /* Light border */
-  --input: oklch(0.95 0.01 264.376);
-  --ring: oklch(0.439 0 0); /* Keep ring color for focus */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* Mint-Tech Color Palette */
+  --background: #f0fdf8; /* Soft mint background */
+  --foreground: #1a3a33; /* Deep slate for dark text */
+  --card: #f8fdfb;
+  --card-foreground: #1a3a33;
+  --popover: #f8fdfb;
+  --popover-foreground: #1a3a33;
+  --primary: #6dd5c3; /* Soft mint - primary */
+  --primary-foreground: #1a3a33;
+  --secondary: #7dd3d0; /* Muted teal - secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #e0f2f1;
+  --muted-foreground: #4a7c7a;
+  --accent: #c8d4f4; /* Gentle lilac - accent */
+  --accent-foreground: #1a3a33;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #d4f1ed;
+  --input: #f0fdf8;
+  --ring: #6dd5c3;
+  --chart-1: #6dd5c3;
+  --chart-2: #7dd3d0;
+  --chart-3: #c8d4f4;
+  --chart-4: #fbbf24;
+  --chart-5: #a78bfa;
   --radius: 0.625rem;
-
-  /* Custom colors - adjusted for light theme */
-  --dark-bg: #ffffff; /* Not used directly, but for consistency */
 }
 
 @theme inline {
@@ -74,28 +63,25 @@
 }
 
 @layer base {
-  /* Removed universal border and outline */
   body {
-    background-color: white; /* Main background */
-    color: black; /* Main text color */
+    background-color: #f0fdf8; /* Soft mint background */
+    color: #1a3a33;
     overflow-x: hidden;
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Glassmorphism effect - adjusted for light theme */
+/* Updated glassmorphism for mint background with soft tinted cards */
 .glassmorphism-card-subtle {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.02); /* Very subtle black tint */
-  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle black border */
+  background: rgba(240, 253, 248, 0.7);
+  border: 1px solid rgba(109, 213, 195, 0.3);
 }
 
-/* Ripple effect for buttons - adjusted for light theme */
 .ripple-button {
   position: relative;
   overflow: hidden;
@@ -111,7 +97,7 @@ html {
   top: 0;
   left: 0;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 10%, transparent 10.01%); /* Subtle black ripple */
+  background-image: radial-gradient(circle, rgba(26, 58, 51, 0.1) 10%, transparent 10.01%);
   background-repeat: no-repeat;
   background-position: 50%;
   transform: scale(10, 10);
@@ -121,11 +107,10 @@ html {
 
 .ripple-button:active:after {
   transform: scale(0, 0);
-  opacity: 0.2; /* Softer active ripple */
+  opacity: 0.2;
   transition: 0s;
 }
 
-/* Marquee animation */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -139,32 +124,30 @@ html {
   animation: marquee 30s linear infinite;
 }
 
-/* Pause marquee on hover */
 .group-hover\:pause-marquee:hover {
   animation-play-state: paused;
 }
+
 .group-hover\:pause-marquee:hover * {
   animation-play-state: paused;
 }
 
-/* Hide scrollbar */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
+  display: none;
 }
 
-/* Floating animation - reduced movement */
 @keyframes float {
   0%,
   100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-6px); /* Less vertical movement */
+    transform: translateY(-6px);
   }
 }
 
@@ -172,57 +155,57 @@ html {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Removed redundant CSS for glows, particles, etc. as they are handled by component styles or removed */
 .neon-text,
 .glow-button,
 .border-glow,
 .particle,
 .hover-lift {
-  /* These classes are either removed or their effects are now handled by more subtle inline styles/new classes */
   text-shadow: none;
   box-shadow: none;
   animation: none;
   transform: none;
 }
 
-/* Focus styles for accessibility */
 .focus-ring:focus {
-  outline: 2px solid #007bff; /* Blue focus ring for light theme */
+  outline: 2px solid #6dd5c3;
   outline-offset: 2px;
 }
 
-/* Mesh gradient backgrounds - extremely subtle on light theme */
 .mesh-gradient-1 {
-  background: radial-gradient(ellipse at top, rgba(0, 123, 255, 0.05) 0%, transparent 50%), /* Subtle blue */
-    radial-gradient(ellipse at bottom, rgba(108, 117, 125, 0.05) 0%, transparent 50%); /* Subtle gray */
+  background: radial-gradient(ellipse at top, rgba(109, 213, 195, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(125, 211, 208, 0.1) 0%, transparent 50%);
 }
 
 .mesh-gradient-2 {
   background: conic-gradient(
     from 0deg at 50% 50%,
-    rgba(0, 123, 255, 0.05) 0deg,
-    rgba(108, 117, 125, 0.05) 120deg,
-    rgba(40, 167, 69, 0.05) 240deg,
-    rgba(0, 123, 255, 0.05) 360deg
+    rgba(109, 213, 195, 0.1) 0deg,
+    rgba(125, 211, 208, 0.1) 120deg,
+    rgba(200, 212, 244, 0.1) 240deg,
+    rgba(109, 213, 195, 0.1) 360deg
   );
 }
 
-/* Animation delays */
 .delay-100 {
   animation-delay: 0.1s;
 }
+
 .delay-200 {
   animation-delay: 0.2s;
 }
+
 .delay-300 {
   animation-delay: 0.3s;
 }
+
 .delay-400 {
   animation-delay: 0.4s;
 }
+
 .delay-500 {
   animation-delay: 0.5s;
 }
+
 .delay-1000 {
   animation-delay: 1s;
 }

@@ -28,13 +28,13 @@ export default function AreasOfService() {
         "Modules: Financial Management, Order Management, Supply Chain Planning, Manufacturing, Procurement, HCM, Reporting & BI, Technical Development, CNC",
       ],
       icon: Server,
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-blue-500 to-blue-400",
     },
     {
       title: "Oracle Fusion Cloud Applications",
       description: ["Modules: Financial Management, Procurement Management, HCM, Supply Chain and Manufacturing"],
       icon: CloudCog,
-      gradient: "from-cyan-500 to-teal-500",
+      gradient: "from-cyan-500 to-cyan-400",
     },
     {
       title: "Oracle NetSuite",
@@ -45,7 +45,7 @@ export default function AreasOfService() {
         "Supply chain, Inventory and Order Management",
       ],
       icon: Boxes,
-      gradient: "from-yellow-500 to-orange-500",
+      gradient: "from-mint-500 to-mint-400",
     },
     {
       title: "SAP",
@@ -59,13 +59,13 @@ export default function AreasOfService() {
         "Financial Accounting and Controlling (SAP FICO)",
       ],
       icon: Settings2,
-      gradient: "from-green-500 to-emerald-500",
+      gradient: "from-blue-600 to-blue-500",
     },
     {
       title: "Salesforce",
       description: ["Offering – Salesforce Administration"],
       icon: Users,
-      gradient: "from-sky-500 to-blue-500",
+      gradient: "from-cyan-600 to-cyan-500",
     },
     {
       title: "Training",
@@ -74,7 +74,7 @@ export default function AreasOfService() {
         "Oracle JD Edwards: Financial Management, Sales and Distribution, Manufacturing, HR and Payroll, Technical, CNC",
       ],
       icon: GraduationCap,
-      gradient: "from-purple-500 to-indigo-500",
+      gradient: "from-mint-600 to-mint-500",
     },
     {
       title: "OnBase",
@@ -85,20 +85,20 @@ export default function AreasOfService() {
         "Migration and data conversion",
         "Performance tuning and optimization",
       ],
-      icon: FileStack, // or use FileText if you prefer
-      gradient: "from-pink-500 to-red-500",
+      icon: FileStack,
+      gradient: "from-blue-700 to-blue-600",
     },
     {
       title: "Mobile App Development",
       description: "Mobile Application Development Services",
       icon: Smartphone,
-      gradient: "from-rose-500 to-pink-500",
+      gradient: "from-slate-600 to-slate-500",
     },
     {
       title: "Website Development",
       description: ["WordPress", "React", "Angular"],
       icon: Laptop,
-      gradient: "from-teal-500 to-green-500",
+      gradient: "from-cyan-700 to-cyan-600",
     },
     {
       title: "Oracle Retail Merchandising System",
@@ -111,15 +111,15 @@ export default function AreasOfService() {
         "Reporting and analytics",
       ],
       icon: ShoppingCart,
-      gradient: "from-orange-500 to-yellow-500",
+      gradient: "from-mint-700 to-mint-600",
     },
   ]
 
   return (
     <section id="areas-of-service" className="py-20 px-4 relative">
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-200/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-200/20 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -130,11 +130,11 @@ export default function AreasOfService() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-700 to-cyan-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
               Our Areas of Service
             </span>
           </h2>
-          <p className="text-gray-700 text-xl max-w-3xl mx-auto">
+          <p className="text-slate-700 text-xl max-w-3xl mx-auto">
             Comprehensive technology services across multiple business domains
           </p>
         </motion.div>
@@ -149,27 +149,27 @@ export default function AreasOfService() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                className="group relative overflow-hidden cursor-pointer rounded-2xl border border-gray-200 bg-gradient-to-br from-white/50 to-gray-50/50 backdrop-blur-md p-6 transition-all duration-500 shadow-sm hover:shadow-xl min-h-[100px]"
+                className="group relative overflow-hidden cursor-pointer rounded-2xl border border-blue-200 bg-gradient-to-br from-white/50 to-blue-50/50 backdrop-blur-md p-6 transition-all duration-500 shadow-sm hover:shadow-xl min-h-[100px]"
               >
                 <div
-                  className={`p-4 rounded-full bg-gradient-to-r ${area.gradient} bg-opacity-10 border border-gray-200 mb-4 w-fit mx-auto`}
+                  className={`p-4 rounded-full bg-gradient-to-r ${area.gradient} bg-opacity-10 border border-blue-200 mb-4 w-fit mx-auto`}
                 >
-                  <IconComponent className="h-7 w-7 text-gray-800" />
+                  <IconComponent className="h-7 w-7 text-slate-800" />
                 </div>
 
-                <h3 className="text-center text-lg font-bold mb-2 bg-gradient-to-r from-purple-700 to-cyan-600 bg-clip-text text-transparent">
+                <h3 className="text-center text-lg font-bold mb-2 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                   {area.title}
                 </h3>
 
                 <div className="max-h-0 opacity-0 group-hover:max-h-60 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden text-center">
                   {Array.isArray(area.description) ? (
-                    <ul className="text-sm text-gray-700 mt-2 px-4 list-disc text-left space-y-1">
+                    <ul className="text-sm text-slate-700 mt-2 px-4 list-disc text-left space-y-1">
                       {area.description.map((line, i) => (
                         <li key={i}>{line}</li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-sm text-gray-700 mt-2 px-2">{area.description}</p>
+                    <p className="text-sm text-slate-700 mt-2 px-2">{area.description}</p>
                   )}
                 </div>
               </motion.div>

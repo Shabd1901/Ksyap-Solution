@@ -10,19 +10,17 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background mesh gradients - extremely subtle on light background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-gray-50 to-gray-100" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-mint-200/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-teal-200/15 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      {/* Floating particles - extremely subtle on light background */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-0.5 h-0.5 bg-gray-400 rounded-full" /* Gray particles */
+            className="absolute w-0.5 h-0.5 bg-slate-400 rounded-full"
             animate={{
               x: [0, 80, 0],
               y: [0, -80, 0],
@@ -36,7 +34,6 @@ export default function Hero() {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              boxShadow: "none",
             }}
           />
         ))}
@@ -49,10 +46,7 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="text-6xl md:text-8xl font-bold mb-8"
         >
-          <span
-            className="bg-gradient-to-r from-cyan-600 via-blue-700 to-purple-800 bg-clip-text text-transparent"
-            style={{ textShadow: "none" }}
-          >
+          <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
             Welcome to
           </span>
           <br />
@@ -60,10 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="bg-gradient-to-r from-purple-700 via-cyan-600 to-blue-700 bg-clip-text text-transparent"
-            style={{
-              textShadow: "none",
-            }}
+            className="bg-gradient-to-r from-blue-700 via-cyan-600 to-blue-600 bg-clip-text text-transparent"
           >
             Ksyap Solution
           </motion.span>
@@ -73,16 +64,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1 }}
-          className="text-2xl md:text-3xl text-gray-700 mb-12 leading-relaxed"
+          className="text-2xl md:text-3xl text-slate-700 mb-12 leading-relaxed"
         >
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
             className="font-light"
-            style={{
-              textShadow: "none",
-            }}
           >
             Providing Excellence to the System and Organization
           </motion.p>
@@ -95,7 +83,7 @@ export default function Hero() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={scrollToVision}
-          className="ripple-button bg-gradient-to-r from-cyan-600 to-purple-700 text-white px-10 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-md shadow-gray-300 hover:shadow-gray-400 border border-gray-200" /* Adjusted shadows and borders for light theme */
+          className="ripple-button bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-10 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-md shadow-blue-200 hover:shadow-blue-300 border border-blue-300"
         >
           Explore Our Vision
         </motion.button>
@@ -112,12 +100,7 @@ export default function Hero() {
             className="cursor-pointer"
             onClick={scrollToVision}
           >
-            <ChevronDown
-              className="h-8 w-8 text-gray-500" /* Darker chevron */
-              style={{
-                filter: "none",
-              }}
-            />
+            <ChevronDown className="h-8 w-8 text-slate-500" />
           </motion.div>
         </motion.div>
       </div>
