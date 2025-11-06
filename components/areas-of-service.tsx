@@ -16,104 +16,104 @@ import {
 
 export default function AreasOfService() {
   const areas = [
-    {
-      title: "Oracle JD Edwards",
-      description: [
-        "Business Analysis & Solution Designing",
-        "Implementation & Post Go live Support",
-        "Process and Object Assessment",
-        "Helpdesk and Multiclient Support",
-        "System enhancement and technical Development",
-        "Product Development",
-        "Modules: Financial Management, Order Management, Supply Chain Planning, Manufacturing, Procurement, HCM, Reporting & BI, Technical Development, CNC",
-      ],
-      icon: Server,
-      gradient: "from-blue-500 to-blue-400",
-    },
-    {
-      title: "Oracle Fusion Cloud Applications",
-      description: ["Modules: Financial Management, Procurement Management, HCM, Supply Chain and Manufacturing"],
-      icon: CloudCog,
-      gradient: "from-cyan-500 to-cyan-400",
-    },
-    {
-      title: "Oracle NetSuite",
-      description: [
-        "Human Resource Management",
-        "Financials",
-        "Analytics and Business Intelligence",
-        "Supply chain, Inventory and Order Management",
-      ],
-      icon: Boxes,
-      gradient: "from-mint-500 to-mint-400",
-    },
-    {
-      title: "SAP",
-      description: [
-        "Human Resource Management (SAP HRM)",
-        "Production Planning (SAP PP)",
-        "Material Management (SAP MM)",
-        "Financial Supply Chain Management (SAP FSCM)",
-        "Sales and Distribution (SAP SD)",
-        "Project System (SAP PS)",
-        "Financial Accounting and Controlling (SAP FICO)",
-      ],
-      icon: Settings2,
-      gradient: "from-blue-600 to-blue-500",
-    },
-    {
-      title: "Salesforce",
-      description: ["Offering – Salesforce Administration"],
-      icon: Users,
-      gradient: "from-cyan-600 to-cyan-500",
-    },
-    {
-      title: "Training",
-      description: [
-        "Offering below programs for your career growth and leadership:",
-        "Oracle JD Edwards: Financial Management, Sales and Distribution, Manufacturing, HR and Payroll, Technical, CNC",
-      ],
-      icon: GraduationCap,
-      gradient: "from-mint-600 to-mint-500",
-    },
-    {
-      title: "OnBase",
-      description: [
-        "Implementation and configuration",
-        "Customization and development",
-        "Training and support",
-        "Migration and data conversion",
-        "Performance tuning and optimization",
-      ],
-      icon: FileStack,
-      gradient: "from-blue-700 to-blue-600",
-    },
-    {
-      title: "Mobile App Development",
-      description: "Mobile Application Development Services",
-      icon: Smartphone,
-      gradient: "from-slate-600 to-slate-500",
-    },
-    {
-      title: "Website Development",
-      description: ["WordPress", "React", "Angular"],
-      icon: Laptop,
-      gradient: "from-cyan-700 to-cyan-600",
-    },
-    {
-      title: "Oracle Retail Merchandising System",
-      description: [
-        "Product management",
-        "Inventory replenishment",
-        "Purchasing",
-        "Vendor management",
-        "Financial tracking",
-        "Reporting and analytics",
-      ],
-      icon: ShoppingCart,
-      gradient: "from-mint-700 to-mint-600",
-    },
-  ]
+  {
+    title: "Oracle JD Edwards",
+    description: [
+      "Business Analysis & Solution Designing",
+      "Implementation & Post Go live Support",
+      "Process and Object Assessment",
+      "Helpdesk and Multiclient Support",
+      "System enhancement and technical Development",
+      "Product Development",
+      "Modules: Financial Management, Order Management, Supply Chain Planning, Manufacturing, Procurement, HCM, Reporting & BI, Technical Development, CNC",
+    ],
+    icon: Server,
+    gradient: "from-blue-600 to-blue-500",
+  },
+  {
+    title: "Oracle Fusion Cloud Applications",
+    description: ["Modules: Financial Management, Procurement Management, HCM, Supply Chain and Manufacturing"],
+    icon: CloudCog,
+    gradient: "from-cyan-600 to-cyan-500",
+  },
+  {
+    title: "Oracle NetSuite",
+    description: [
+      "Human Resource Management",
+      "Financials",
+      "Analytics and Business Intelligence",
+      "Supply chain, Inventory and Order Management",
+    ],
+    icon: Boxes,
+    gradient: "from-teal-500 to-mint-500",
+  },
+  {
+    title: "SAP",
+    description: [
+      "Human Resource Management (SAP HRM)",
+      "Production Planning (SAP PP)",
+      "Material Management (SAP MM)",
+      "Financial Supply Chain Management (SAP FSCM)",
+      "Sales and Distribution (SAP SD)",
+      "Project System (SAP PS)",
+      "Financial Accounting and Controlling (SAP FICO)",
+    ],
+    icon: Settings2,
+    gradient: "from-blue-700 to-blue-600",
+  },
+  {
+    title: "Salesforce",
+    description: ["Offering – Salesforce Administration"],
+    icon: Users,
+    gradient: "from-cyan-700 to-cyan-600",
+  },
+  {
+    title: "Training",
+    description: [
+      "Offering below programs for your career growth and leadership:",
+      "Oracle JD Edwards: Financial Management, Sales and Distribution, Manufacturing, HR and Payroll, Technical, CNC",
+    ],
+    icon: GraduationCap,
+    gradient: "from-teal-600 to-mint-600",
+  },
+  {
+    title: "OnBase",
+    description: [
+      "Implementation and configuration",
+      "Customization and development",
+      "Training and support",
+      "Migration and data conversion",
+      "Performance tuning and optimization",
+    ],
+    icon: FileStack,
+    gradient: "from-blue-800 to-blue-700",
+  },
+  {
+    title: "Mobile App Development",
+    description: "Mobile Application Development Services",
+    icon: Smartphone,
+    gradient: "from-slate-700 to-slate-600",
+  },
+  {
+    title: "Website Development",
+    description: ["WordPress", "React", "Angular"],
+    icon: Laptop,
+    gradient: "from-cyan-800 to-cyan-700",
+  },
+  {
+    title: "Oracle Retail Merchandising System",
+    description: [
+      "Product management",
+      "Inventory replenishment",
+      "Purchasing",
+      "Vendor management",
+      "Financial tracking",
+      "Reporting and analytics",
+    ],
+    icon: ShoppingCart,
+    gradient: "from-teal-700 to-mint-700",
+  },
+]
 
   return (
     <section id="areas-of-service" className="py-20 px-4 relative">
@@ -152,9 +152,9 @@ export default function AreasOfService() {
                 className="group relative overflow-hidden cursor-pointer rounded-2xl border border-blue-200 bg-gradient-to-br from-white/50 to-blue-50/50 backdrop-blur-md p-6 transition-all duration-500 shadow-sm hover:shadow-xl min-h-[100px]"
               >
                 <div
-                  className={`p-4 rounded-full bg-gradient-to-r ${area.gradient} bg-opacity-10 border border-blue-200 mb-4 w-fit mx-auto`}
+                  className={`p-4 rounded-full bg-gradient-to-r from-[#2563EB] to-[#38BDF8] bg-opacity-10 border border-blue-200 mb-4 w-fit mx-auto`}
                 >
-                  <IconComponent className="h-7 w-7 text-slate-800" />
+                  <IconComponent className="h-7 w-7 text-white" />
                 </div>
 
                 <h3 className="text-center text-lg font-bold mb-2 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">

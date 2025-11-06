@@ -20,69 +20,69 @@ const services = [
     description:
       "Oracle JD Edwards EnterpriseOne is an integrated ERP software suite. JDE is unique in that organizations running their business processes through the software have choice of database and deployment options. JD Edwards can be deployed on-premise or on the cloud (private, public, or hybrid cloud).",
     icon: Database,
-    gradient: "from-blue-500 to-cyan-500",
+    gradient: "from-[#4B9EFF] to-[#6AD6FF]",
   },
   {
     title: "Oracle Cloud Fusion Applications",
     description:
       "Oracle Fusion Applications are a suite of applications built on Oracle Cloud, including cloud-based applications for enterprise resource planning, enterprise performance management, supply chain management and manufacturing, human capital management, and customer experience.",
     icon: Cloud,
-    gradient: "from-cyan-500 to-blue-500",
+    gradient: "from-[#5BA8FF] to-[#7EE0FF]",
   },
   {
     title: "Oracle NetSuite",
     description:
       "It's the leading integrated cloud business software suite for enterprise resource planning. It helps you manage inventory, track financials, host e-commerce stores and maintain customer relationship management systems.",
     icon: Boxes,
-    gradient: "from-mint-500 to-cyan-500",
+    gradient: "from-[#4A90E2] to-[#7ED6FF]",
   },
   {
     title: "SAP",
     description:
       "SAP is one of the world's leading producers of software for the management of business processes. SAP also develops solutions that facilitate effective data processing and streamline information flow across organizations.",
     icon: Code,
-    gradient: "from-blue-600 to-blue-500",
+    gradient: "from-[#3B82F6] to-[#60A5FA]",
   },
   {
     title: "Sales Force",
     description:
       "Sales Force provides customer relationship management software and applications focused on sales, customer service, marketing automation, e-commerce, analytics, and application development.",
     icon: Users,
-    gradient: "from-cyan-600 to-cyan-500",
+    gradient: "from-[#4299E1] to-[#63B3ED]",
   },
   {
     title: "App> Mobile Application Development Services",
     description:
       "Have an idea to develop an app for yourself, a group, an enterprise, or Organization, we are available to provide you with an application that will fulfill your idea into reality.",
     icon: Smartphone,
-    gradient: "from-slate-600 to-slate-500",
+    gradient: "from-[#3B82F6] to-[#5CB8FF]",
   },
   {
     title: "Website Development",
     description: "We are available to provide you with a website that will fulfill your idea into reality.",
     icon: Globe,
-    gradient: "from-blue-500 to-cyan-500",
+    gradient: "from-[#4F9EFF] to-[#7FD8FF]",
   },
   {
     title: "Corporate Training",
     description:
       "Would like to get trained into your choice of Software, Skills or program? We provide Corporate, group and individual training onsite to the client, remotely to anywhere on the globe.",
     icon: GraduationCap,
-    gradient: "from-mint-600 to-mint-500",
+    gradient: "from-[#4A90E2] to-[#7ED6FF]",
   },
   {
     title: "OnBase",
     description:
       "OnBase is a powerful enterprise content management (ECM) platform that can help your organization improve its efficiency and productivity. Our OnBase consulting services can help you implement, configure, customize, and develop OnBase to meet your specific needs. We also offer training and support services to help you get the most out of your OnBase investment.",
     icon: FileStack,
-    gradient: "from-blue-600 to-cyan-600",
+    gradient: "from-[#3B82F6] to-[#60A5FA]",
   },
   {
     title: "Oracle Retail Merchandising System",
     description:
       "Underlying every well-run retailer are the efficiencies, business processes, and infrastructure necessary to make sure customers get the product they want, at a price they want, when and where they want it. A real-time, exception-based view across all merchandising transaction data provides retailers with the information they need to make better-informed, rapid decisions, based on a single version of the truth.",
     icon: ShoppingCart,
-    gradient: "from-cyan-500 to-blue-600",
+    gradient: "from-[#4299E1] to-[#63B3ED]",
   },
 ]
 
@@ -117,9 +117,9 @@ const ServicesMarquee = () => {
                 className="group/tile relative min-w-[300px] max-w-xs bg-white/80 border border-blue-200 shadow-lg rounded-xl p-6 transition-all duration-500 overflow-hidden hover:z-20 cursor-pointer flex flex-col justify-between"
               >
                 <div
-                  className={`p-4 rounded-full bg-gradient-to-r ${service.gradient} bg-opacity-10 border border-slate-200 mb-4 w-fit mx-auto`}
+                  className={`p-4 rounded-full bg-gradient-to-r ${service.gradient} bg-opacity-10 border border-blue-200 mb-4 w-fit mx-auto`}
                 >
-                  <Icon className="h-8 w-8 text-slate-800" />
+                  <Icon className="h-8 w-8 text-white" />
                 </div>
 
                 <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent text-center">
