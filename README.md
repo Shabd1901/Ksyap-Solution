@@ -1,6 +1,6 @@
 # 🌐 Ksyap Solution Website
 
-A modern, professional, and interactive business website for **Ksyap Solution** — showcasing services, vision, team, and contact details. Built with **Next.js 15**, **Tailwind CSS**, **Framer Motion**, and **Radix UI**, the site blends smooth animations, a clean layout, and responsive design to deliver a premium user experience.
+A modern, professional, and interactive business website for **Ksyap Solution** — showcasing services, vision, team, and contact details. Built with **Next.js 15**, **Tailwind CSS**, **Framer Motion**, and **Radix UI**, the site blends smooth animations, a clean layout, and a responsive design to deliver a premium user experience.
 
 ---
 
@@ -29,22 +29,6 @@ A modern, professional, and interactive business website for **Ksyap Solution** 
 
 ---
 
-## 📂 Folder Structure
-
-├── app/ # Next.js App Router pages & layouts
-├── components/ # Reusable UI components
-│ ├── loader.tsx # Splash loading animation
-│ ├── particle-background.tsx # Animated particle effect
-│ ├── services-marquee.tsx # Scrolling services section
-│ ├── team.tsx # Team member cards
-│ ├── vision.tsx # Vision & mission section
-├── public/ # Static assets (images, icons, etc.)
-├── styles/ # Global styles
-├── next.config.mjs # Next.js configuration
-├── postcss.config.mjs # PostCSS configuration
-├── tailwind.config.ts # Tailwind CSS configuration
-└── package.json # Dependencies & scripts
-
 🔧 Configuration Details
 Tailwind CSS
 Extended border radius and accordion animations.
@@ -66,8 +50,3 @@ This project is licensed under the MIT License — you are free to use, modify, 
 ✨ Author
 Shabdansh Prajapati
 📧 prajapatishabdansh@gmail.com
-
----
-
-This one keeps it **detailed enough for a dev** but **clear enough for a GitHub visitor** without feeling bloated.  
-If you want, I can also make a **shorter marketing-style top section** so the repo looks attractive instantly before the technical details start.
